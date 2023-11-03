@@ -1,6 +1,7 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
-import CheckMoney from './Validation/Puchase.js'
+import checkValue from './Validation/Puchase.js'
 import App from './App.js'
+import exitWithError from './Validation/Puchase.js'
 
   
 
@@ -13,15 +14,12 @@ export default class Lottos {
     }
 
     validation(money) {
-        const app = new App()
-        try {
-            CheckMoney.checkPurchase(money)
-        } catch(e) {
-        // throw(e)
-        MissionUtils.Console.print(e)
-        app.userInputMoney()
-        } return true;
+        const errorMsg = new checkValue.money(money);
 
+        if (errorMsg) {
+            exitWithError(errorMsg);
+        return;
+        }
     }
 
     print(money) {

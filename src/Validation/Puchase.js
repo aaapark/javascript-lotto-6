@@ -1,19 +1,15 @@
+import App from '../App.js'
 export default class CheckMoney {
-    
-    // static checkPurchase(input) {
-    //     try {
-    //         this.checkNumber(input);
-    //         this.checkPurchaseAmountOnUnitValueOf1000Won(input);
-    //     } catch(e) {
-    //       throw(e);
-    //     } return true;
-    // }
-
     static checkPurchase(input) {
-        this.checkNumber(input);
-        this.checkPurchaseAmountOnUnitValueOf1000Won(input);
-    } 
-
+        try {
+            this.checkNumber(input);
+            this.checkPurchaseAmountOnUnitValueOf1000Won(input);
+        } catch(e) {
+        // this.checkPurchase(input)
+        const app = new App()
+        app.play()
+        } return true;
+    }
 
 
     // 입력한 금액이 숫자여야 함.

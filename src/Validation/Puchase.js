@@ -1,0 +1,44 @@
+import App from '../App.js'
+
+
+export default class CheckMoney {
+    
+    // static checkPurchase(input) {
+    //     try {
+    //         this.checkNumber(input);
+    //         this.checkPurchaseAmountOnUnitValueOf1000Won(input);
+    //     } catch(e) {
+    //       throw(e);
+    //     } return true;
+    // }
+
+
+    static checkPurchase(input) {
+        this.checkNumber(input);
+        this.checkPurchaseAmountOnUnitValueOf1000Won(input);
+
+    } 
+
+
+
+    // 입력한 금액이 숫자여야 함.
+    static checkNumber(input) {
+        const app = new App()
+        if (isNaN(Number(input))) {
+            // throw new Error ('[ERROR] 숫자만 입력 가능합니다.')
+        console.log('[ERROR] 숫자만 입력 가능합니다.')
+        app.userInputMoney()
+        } return true;
+    } 
+
+    // 입력한 금액이 1000원으로 나누었을때 정수로 떨여져야함
+   static checkPurchaseAmountOnUnitValueOf1000Won(input) {
+        if (! Number.isInteger(input/1000)) {
+            throw new Error ('에러')
+        } return true;
+    }
+
+    static returnInput () {
+        console.log('리턴')
+    }
+}

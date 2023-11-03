@@ -13,7 +13,7 @@ export default class Lottos {
     }
 
     validation(money) {
-        // const app = new App()
+        const app = new App()
         try {
             CheckMoney.checkPurchase(money)
         } catch(e) {

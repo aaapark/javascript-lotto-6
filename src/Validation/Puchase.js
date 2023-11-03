@@ -1,6 +1,3 @@
-import App from '../App.js'
-
-
 export default class CheckMoney {
     
     // static checkPurchase(input) {
@@ -12,22 +9,17 @@ export default class CheckMoney {
     //     } return true;
     // }
 
-
     static checkPurchase(input) {
         this.checkNumber(input);
         this.checkPurchaseAmountOnUnitValueOf1000Won(input);
-
     } 
 
 
 
     // 입력한 금액이 숫자여야 함.
     static checkNumber(input) {
-        const app = new App()
         if (isNaN(Number(input))) {
-            // throw new Error ('[ERROR] 숫자만 입력 가능합니다.')
-        console.log('[ERROR] 숫자만 입력 가능합니다.')
-        app.userInputMoney()
+            throw new Error ('[ERROR] 숫자만 입력 가능합니다.')
         } return true;
     } 
 
@@ -38,7 +30,4 @@ export default class CheckMoney {
         } return true;
     }
 
-    static returnInput () {
-        console.log('리턴')
-    }
 }

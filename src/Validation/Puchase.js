@@ -1,14 +1,7 @@
-import App from '../App.js'
 export default class CheckMoney {
     static checkPurchase(input) {
-        try {
             this.checkNumber(input);
             this.checkPurchaseAmountOnUnitValueOf1000Won(input);
-        } catch(e) {
-        // this.checkPurchase(input)
-        const app = new App()
-        app.play()
-        } return true;
     }
 
 
@@ -22,8 +15,20 @@ export default class CheckMoney {
     // 입력한 금액이 1000원으로 나누었을때 정수로 떨여져야함
    static checkPurchaseAmountOnUnitValueOf1000Won(input) {
         if (! Number.isInteger(input/1000)) {
-            throw new Error ('에러')
+            throw new Error ('[ERROR] 1,000원 단위로 구매 가능합니다.')
         } return true;
     }
 
 }
+
+
+// static checkPurchase(input) {
+    //     try {
+    //         this.checkNumber(input);
+    //         this.checkPurchaseAmountOnUnitValueOf1000Won(input);
+    //     } catch(e) {
+    //         MissionUtils.Console.print(e)
+    //         const app = new App()
+    //         app.userInputMoney()
+    //     } return true;
+    // }

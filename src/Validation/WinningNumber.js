@@ -1,20 +1,15 @@
-export default class Validation_WinningNumber {
+export default class CheckNumber {
     
     static checkWinningNumber(input) {
-        try {
             this.checkWinningNumberType(input);
             this.checkWinningNumberLength(input);
             this.checkWinningNumberRange(input);
             this.checkWinningNumberDuplication(input);
-        } catch(e) {
-          throw(e)
-        } return true;
     }
 
     static checkWinningNumberType(input) {
         if (input.some((i)=> isNaN(Number(i)))) {
             throw new Error ('[ERROR] 숫자만 입력 가능합니다.')
-     
         } return true;
     } 
 
@@ -31,7 +26,8 @@ export default class Validation_WinningNumber {
     }
 
     static checkWinningNumberDuplication(input){
-        if(input.size !== input.length) {
+        const set = new Set(input)
+        if(set.size !== input.length) {
             throw new Error ('[ERROR] 중복된 숫자가 있습니다.')
         }
     }

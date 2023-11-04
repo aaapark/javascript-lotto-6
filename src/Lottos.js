@@ -1,33 +1,43 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
 import CheckMoney from './Validation/Puchase.js'
-// import App from './App.js'
+import Lotto from './Lotto.js'
 
   
-
 export default class Lottos {
     constructor(money) {
         this.validation(money);
         this.count = money / 1000;
         this.list = [];
-        this.print(money)
+        this.createLottoNumberArray();
     }
-
-    // validation(money) {
-    //     try {
-    //         CheckMoney.checkPurchase(money)
-    //     } catch(e) {
-    //     throw(e)
-    //     } return true;
-
-    // }
-
 
     validation(money) {
-        CheckMoney.checkPurchase(money);
+        CheckMoney.checkPurchase(money)
     }
+
+    createLottoNumberArray() {
+        for (let i=0 ; i < this.count ; i++) {
+            const newLottoNumber = this.createLottoNumber()
+            this.list.push(newLottoNumber)
+        }
+    }
+
+    createLottoNumber() {
+        let lottoNumbers = MissionUtils.Random.pickUniqueNumbersInRange(1, 45, 6);
+        return new Lotto(lottoNumbers)
+    } 
     
 
-    print(money) {
-        console.log(money)
+    printCount() {
+        MissionUtils.Console.print(`\n${this.count}개를 구매했습니다.`)
     }
+
+    printList() {
+        this.list.forEach((lotto) => {
+            lotto.printNumbers();
+          });
+    }
+
+    
+    
 }

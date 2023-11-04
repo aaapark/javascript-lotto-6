@@ -27,7 +27,6 @@ export default class Lottos {
         return new Lotto(lottoNumbers)
     } 
     
-
     printCount() {
         MissionUtils.Console.print(`\n${this.count}개를 구매했습니다.`)
     }
@@ -35,9 +34,8 @@ export default class Lottos {
     printList() {
         this.list.forEach((lotto) => {
             lotto.printNumbers();
-          });
+        });
     }
 
-    
     
 }

@@ -2,6 +2,7 @@ import { MissionUtils } from "@woowacourse/mission-utils";
 import Lottos from './Lottos.js'
 import Winning from  './WinningNumber.js'
 import Bonus from './BonusNumber.js'
+import Lotto from "./Lotto.js";
 
 class App {
   constructor() {
@@ -20,9 +21,10 @@ class App {
       MissionUtils.Console.print(e.message)
       await this.userInputMoney()
     } 
-    this.lottos.printCount()
-    this.lottos.printList()
-    await this.userInputLottoNumber()
+    // MissionUtils.Console.print('확인중')
+    // this.lottos.printCount()
+    // this.lottos.printList()
+    // await this.userInputLottoNumber()
   } 
 
   async userInputLottoNumber() {
@@ -39,13 +41,33 @@ class App {
   }
 
   async bonusNumberInput() {
-    const inputBonusNumber = await MissionUtils.Console.readLineAsync("\n보너스 번호를 입력해 주세요.\n");
-    this.bonus = new Bonus(inputBonusNumber,this.winning.value)
-    console.log(this.winning.value)
-}
-// winning넘버 어케 받지
+    try {
+      const inputBonusNumber = await MissionUtils.Console.readLineAsync("\n보너스 번호를 입력해 주세요.\n");
+      let newBonusNumber = Number(inputBonusNumber)
+      this.bonus = new Bonus(newBonusNumber,this.winning.value)
+    } catch(e) {
+      MissionUtils.Console.print(e.message)
+      await this.bonusNumberInput()
+    } this.printWinningStats()
+  }
 
-}
+  printWinningStats() {
+    // MissionUtils.Console.print('\n당첨 통계\n---',);
+
+    // const lottoRanks = this.lottos.getRanks(
+    //   this.winningNumbers.value,
+    //   this.bonusNumber.value
+    // );
+
+    // this.lottos.printWinningDetails(lottoRanks);
+    // this.lottos.printRate(lottoRanks);
+
+    // this.end();
+  }
+
+
+
+} 
 export default App;
 
 

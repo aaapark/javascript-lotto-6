@@ -4,7 +4,6 @@ export default class Winning {
     constructor(number) {
         this.validate(number)
         this.value = number
-        // this.winNumber(number);
     }
     // winNumber(userInput) {
     //     let userLottoNumber = userInput.split(',');

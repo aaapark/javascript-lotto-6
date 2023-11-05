@@ -1,6 +1,7 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
 import CheckMoney from './Validation/Puchase.js'
 import Lotto from './Lotto.js'
+import {WINNING_MESSAGE,PRIZEAMONUT} from './Const.js'
 
   
 export default class Lottos {
@@ -48,20 +49,11 @@ export default class Lottos {
       }
 
     printRank(lottoRanks) {
-            
-        const WINNING_MESSAGE= [
-            '6개 일치 (2,000,000,000원)',
-            '5개 일치, 보너스 볼 일치 (30,000,000원)',
-            '5개 일치 (1,500,000원)',
-            '4개 일치 (50,000원)',
-            '3개 일치 (5,000원)',
-        ]
-
-        const prize = [1,2,3,4,5]
+        const RANK_NUMBER = [1,2,3,4,5]
         let newLottoRanks = [];
-        let calculateArray = []
+        let calculateArray = [];
 
-        prize.forEach((e,index) => {
+        RANK_NUMBER.forEach((e,index) => {
             const count = lottoRanks.filter(i => i === e).length
             const mesage = WINNING_MESSAGE[index]
             calculateArray.push(`${count}`)
@@ -70,28 +62,20 @@ export default class Lottos {
 
         newLottoRanks.forEach((rank) => {
             MissionUtils.Console.print(rank)
-        })
-        this.printRateOfReturn(calculateArray)
+        });
+        this.printRateOfReturn(calculateArray);
     }
 
     printRateOfReturn(count) {
-        let rank = count.map(Number)
-        const prize = [
-            2000000000,
-            30000000,
-            1500000,
-            50000,
-            5000
-        ]
-    
+        let rank = count.map(Number);
+        
         const calculateResults = rank.map((rank, index) => {
-            return rank * prize[index]
-        })
-        // console.log(calculateResults)
-        const sumCalculateResults = calculateResults.reduce((a,b) => (a+b))
-        const purchaseMoney = this.count*1000
-        const rateResult = (sumCalculateResults / purchaseMoney * 100).toFixed(1)
-        MissionUtils.Console.print(`총 수익률은 ${rateResult}%입니다.`)        
+            return rank * PRIZEAMONUT[index]
+        });
+        const sumCalculateResults = calculateResults.reduce((a,b) => (a+b));
+        const purchaseMoney = this.count*1000;
+        const rateResult = (sumCalculateResults / purchaseMoney * 100).toFixed(1);
+        MissionUtils.Console.print(`총 수익률은 ${rateResult}%입니다.`);
     }
 }     
 

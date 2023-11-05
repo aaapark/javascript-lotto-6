@@ -5,12 +5,6 @@ export default class Winning {
         this.validate(number)
         this.value = number
     }
-    // winNumber(userInput) {
-    //     let userLottoNumber = userInput.split(',');
-    //     let newUserLottoNumber = userLottoNumber.map(Number)
-    //     this.validate(newUserLottoNumber)
-
-    // }
 
     validate(number) {
         CheckNumber.checkWinningNumber(number)

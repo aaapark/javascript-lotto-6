@@ -2,10 +2,12 @@ import { MissionUtils } from "@woowacourse/mission-utils";
 import Lottos from './Lottos.js'
 import Winning from  './WinningNumber.js'
 import Bonus from './BonusNumber.js'
+// import {WINNING_DETAIL} from './Const.js'
 
 class App {
   constructor() {
     this.lottos = null;
+    this.lotto = null
   }
 
   async play() {
@@ -46,7 +48,13 @@ class App {
     } catch(e) {
       MissionUtils.Console.print(e.message)
       await this.bonusNumberInput()
-    }
+    } this.printWinningState(this.winning.value, this.bonus.value)
+  } 
+
+  printWinningState(win, bonus) {
+    MissionUtils.Console.print('\n당첨 통계\n---')
+    this.lottos.getRanks(win, bonus)
+
   }
 }
 export default App;

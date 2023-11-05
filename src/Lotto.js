@@ -20,24 +20,21 @@ class Lotto {
     MissionUtils.Console.print(`[${this.#numbers}]`)
   }
 
+  getRank(winningNumbers, bonusNumber) {
+    console.log("겟랭크실행")
+    let count = 0;
   
-  // getRank(bonusNumber, winningNumbers) {
-  //   console.log("겟랭크실행")
-    // let count = 0;
-  
-    // this.#numbers.forEach((number) => {
-    //   if (winningNumbers.includes(number)) count += 1;
-    // });
+    this.#numbers.forEach((number) => {
+      if (winningNumbers.includes(number)) count += 1;
+    });
 
-    // if (count === 6) return PLACE.FIRST;
+    if (count === 6) return `6개 일치 (2,000,000,000원) - ${count}}`;
 
-    // if (count === 5 && this.#numbers.includes(bonusNumber)) return PLACE.SECOND;
+    if (count === 5 && this.#numbers.includes(bonusNumber)) return PLACE.SECOND;
 
-    // return 8 - count;
+    return 8 - count;
 
   }
-
-
-
+}
 
 export default Lotto;

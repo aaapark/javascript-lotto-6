@@ -7,7 +7,8 @@ import Bonus from './BonusNumber.js'
 class App {
   constructor() {
     this.lottos = null;
-    this.lotto = null
+    this.winningNumbers = null;
+    this.bonusNumber = null;
   }
 
   async play() {
@@ -21,6 +22,7 @@ class App {
     } catch(e) {
       MissionUtils.Console.print(e.message)
       await this.userInputMoney()
+      return
     } 
     this.lottos.printCount()
     this.lottos.printList()
@@ -36,6 +38,7 @@ class App {
     } catch(e) {
       MissionUtils.Console.print(e.message)
       await this.userInputLottoNumber()
+      return
     }
     await this.bonusNumberInput()
   }
@@ -48,6 +51,7 @@ class App {
     } catch(e) {
       MissionUtils.Console.print(e.message)
       await this.bonusNumberInput()
+      return
     } this.printWinningState(this.winning.value, this.bonus.value)
   } 
 

@@ -23,7 +23,7 @@ class Lotto {
   getRank(winningNumbers, bonusNumber) {
     let count = 0;
   
-    this.#number((number) => {
+    this.#numbers.forEach((number) => {
       if (winningNumbers.includes(number)) count += 1;
     });
 

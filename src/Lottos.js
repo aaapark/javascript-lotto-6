@@ -37,7 +37,6 @@ export default class Lottos {
         });
     }
 
-
     getRanks(winningNumbers, bonusNumber) {
         let lottoRanks = [];
 
@@ -60,16 +59,39 @@ export default class Lottos {
 
         const prize = [1,2,3,4,5]
         let newLottoRanks = [];
+        let calculateArray = []
 
         prize.forEach((e,index) => {
             const count = lottoRanks.filter(i => i === e).length
             const mesage = WINNING_MESSAGE[index]
+            calculateArray.push(`${count}`)
             newLottoRanks.push(`${mesage} - ${count}개`)
         })
 
         newLottoRanks.forEach((rank) => {
-            MissionUtils.Console.pirnt(rank)
+            MissionUtils.Console.print(rank)
         })
-        
-    }     
-}
+        this.printRateOfReturn(calculateArray)
+    }
+
+    printRateOfReturn(count) {
+        let rank = count.map(Number)
+        const prize = [
+            2000000000,
+            30000000,
+            1500000,
+            50000,
+            5000
+        ]
+    
+        const calculateResults = rank.map((rank, index) => {
+            return rank * prize[index]
+        })
+        // console.log(calculateResults)
+        const sumCalculateResults = calculateResults.reduce((a,b) => (a+b))
+        const purchaseMoney = this.count*1000
+        const rateResult = (sumCalculateResults / purchaseMoney * 100).toFixed(1)
+        MissionUtils.Console.print(`총 수익률은 ${rateResult}%입니다.`)        
+    }
+}     
+

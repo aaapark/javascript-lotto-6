@@ -1,6 +1,4 @@
 import CheckBonusNumber from './Validation/BonusNumber.js'
-import Lotto from './Lotto.js';
-import Score from './Score.js'
 
 export default class Bonus {
     constructor(bonusNumber, winningNumbers){

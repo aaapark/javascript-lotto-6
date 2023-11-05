@@ -1,7 +1,7 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
 import CheckMoney from './Validation/Puchase.js'
 import Lotto from './Lotto.js'
-import {WINNING_MESSAGE,PRIZEAMONUT} from './Const.js'
+import { WINNING_MESSAGE,PRIZEAMONUT } from './Const.js'
 
   
 export default class Lottos {
@@ -72,8 +72,9 @@ export default class Lottos {
         const calculateResults = rank.map((rank, index) => {
             return rank * PRIZEAMONUT[index]
         });
+
         const sumCalculateResults = calculateResults.reduce((a,b) => (a+b));
-        const purchaseMoney = this.count*1000;
+        const purchaseMoney = this.count * 1000;
         const rateResult = (sumCalculateResults / purchaseMoney * 100).toFixed(1);
         MissionUtils.Console.print(`총 수익률은 ${rateResult}%입니다.`);
     }

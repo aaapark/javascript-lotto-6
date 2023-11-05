@@ -2,7 +2,6 @@ import { MissionUtils } from "@woowacourse/mission-utils";
 import Lottos from './Lottos.js'
 import Winning from  './WinningNumber.js'
 import Bonus from './BonusNumber.js'
-// import {WINNING_DETAIL} from './Const.js'
 
 class App {
   constructor() {

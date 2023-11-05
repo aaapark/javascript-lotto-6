@@ -52,7 +52,8 @@ class App {
       MissionUtils.Console.print(e.message)
       await this.bonusNumberInput()
       return
-    } this.printWinningState(this.winning.value, this.bonus.value)
+    }
+    this.printWinningState(this.winning.value, this.bonus.value)
   } 
 
   printWinningState(win, bonus) {

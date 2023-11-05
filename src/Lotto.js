@@ -21,16 +21,15 @@ class Lotto {
   }
 
   getRank(winningNumbers, bonusNumber) {
-    console.log("겟랭크실행")
     let count = 0;
   
-    this.#numbers.forEach((number) => {
+    this.#number((number) => {
       if (winningNumbers.includes(number)) count += 1;
     });
 
-    if (count === 6) return `6개 일치 (2,000,000,000원) - ${count}}`;
+    if (count === 6) return 1;
 
-    if (count === 5 && this.#numbers.includes(bonusNumber)) return PLACE.SECOND;
+    if (count === 5 && this.#numbers.includes(bonusNumber)) return 2;
 
     return 8 - count;
 

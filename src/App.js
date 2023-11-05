@@ -53,7 +53,8 @@ class App {
 
   printWinningState(win, bonus) {
     MissionUtils.Console.print('\n당첨 통계\n---')
-    this.lottos.getRanks(win, bonus)
+    const lottoRanks = this.lottos.getRanks(win, bonus) 
+    this.lottos.printRank(lottoRanks)
 
   }
 }

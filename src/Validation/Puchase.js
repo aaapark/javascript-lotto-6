@@ -4,7 +4,6 @@ export default class CheckMoney {
             this.checkPurchaseAmountOnUnitValueOf1000Won(input);
     }
 
-
     // 입력한 금액이 숫자여야 함.
     static checkNumber(input) {
         if (isNaN(Number(input))) {
@@ -18,17 +17,4 @@ export default class CheckMoney {
             throw new Error ('[ERROR] 1,000원 단위로 구매 가능합니다.')
         } return true;
     }
-
 }
-
-
-// static checkPurchase(input) {
-    //     try {
-    //         this.checkNumber(input);
-    //         this.checkPurchaseAmountOnUnitValueOf1000Won(input);
-    //     } catch(e) {
-    //         MissionUtils.Console.print(e)
-    //         const app = new App()
-    //         app.userInputMoney()
-    //     } return true;
-    // }

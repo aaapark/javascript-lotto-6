@@ -22,8 +22,10 @@ class Lotto {
   // TODO: 추가 기능 구현
   printNumbers() {
     this.#numbers.sort((a, b) => a - b);
+    const numbersStr = this.#numbers.join(', ')
+    // MissionUtils.Console.print(`[${this.#numbers.join(', ')}]`)
+    MissionUtils.Console.print(`[${numbersStr}]`)
 
-    MissionUtils.Console.print(`[${this.#numbers.join(', ')}]`)
   }
 
   getRank(winningNumbers, bonusNumber) {

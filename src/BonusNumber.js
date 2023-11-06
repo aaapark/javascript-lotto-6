@@ -9,7 +9,6 @@ export default class Bonus {
     validate(bonus, win) {
         CheckBonusNumber.checkBonunsNumber(bonus, win)
     }
-
 }
 
 

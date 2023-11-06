@@ -49,7 +49,7 @@ export default class Lottos {
       }
 
     printRank(lottoRanks) {
-        const RANK_NUMBER = [1,2,3,4,5]
+        const RANK_NUMBER = [5,4,3,2,1]
         let newLottoRanks = [];
         let calculateArray = [];
 

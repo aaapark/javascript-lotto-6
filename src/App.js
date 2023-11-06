@@ -30,7 +30,7 @@ class App {
 
   async userInputLottoNumber() {
     try {
-      const inputLottoNumber = await MissionUtils.Console.readLineAsync("\n당첨 번호를 입력해 주세요. 번호는 쉼표(,)로 구분합니다.\n");
+      const inputLottoNumber = await MissionUtils.Console.readLineAsync("\n당첨 번호를 입력해 주세요.\n");
       let userLottoNumber = inputLottoNumber.split(',');
       let newUserLottoNumber = userLottoNumber.map(Number)
       this.winning = new Winning(newUserLottoNumber)
